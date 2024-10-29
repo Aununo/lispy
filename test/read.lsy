@@ -1,0 +1,3 @@
+(do
+ (def user_input (read))
+  (print user_input))

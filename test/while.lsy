@@ -1,0 +1,18 @@
+(do
+  (def counter 0)
+  (while (< counter 5)
+    (do
+      (print "Counter is:" counter)
+      (def counter (+ counter 1))
+    )
+  )
+)
+
+/*
+Counter is: 0
+Counter is: 1
+Counter is: 2
+Counter is: 3
+Counter is: 4
+*/
+

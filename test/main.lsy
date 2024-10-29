@@ -1,0 +1,61 @@
+(do
+  (def assert
+   (fn (cond)
+    (if cond
+     (print :pass)
+     (print :fail))))
+
+  (print :_____identity)
+  (def id (fn (x) x))
+
+  (assert (= (id 1) 1))   // int
+  (assert (= (id 1.5) 1.5))   //float
+  (assert (= (id -2) -2)) //neg
+  (assert (= (id :true) :true)) //bool
+  (assert (= (id "hello world") "hello world")) //string
+
+  (print :_____i/o)
+  (print "\"I stil love you.\"\nShe said.")
+
+  (print :_____decrement)
+  (def dec (fn (x) (- x 1)))
+
+  (assert (= (dec 10) 9))
+  (assert (= (dec 1) 0))
+
+  (print :_____square)
+  (def sq (fn (x) (* x x)))
+
+  (assert (= (sq 2) 4))
+  (assert (= (sq 10) 100))
+
+  (print :_____compose)
+  (def comp (fn (f g) (fn (x) (f (g x)))))
+
+  (def double-dec (comp dec dec))
+  (assert (= (double-dec 3) 1))
+
+  (def square-dec (comp dec sq))
+  (assert (= (square-dec 5) 24))
+
+/*
+计算阶乘
+*/
+  (print :___factorial)
+  (def factorial
+   (fn (x)
+    (if (= x 0)
+     1
+     (* x (factorial (- x 1))))))
+
+  (assert (= (factorial 5) 120))
+
+  (print :___iftest)
+  (def test-true (fn () 
+    (if :true 
+      "Condition is true" 
+      "Condition is false")))
+
+  (assert (= (test-true) "Condition is true"))
+)
+

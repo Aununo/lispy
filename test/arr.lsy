@@ -1,0 +1,13 @@
+(do
+(def a (list 1 2 3 4 5)) 
+(for (def i 0) (< i (len a)) (def i (+ i 1)) 
+    (print (get a i))
+))
+
+/*
+1
+2
+3
+4
+5
+*/
